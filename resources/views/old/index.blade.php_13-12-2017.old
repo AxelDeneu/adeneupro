@@ -1,0 +1,77 @@
+@extends('layouts.app')      
+
+@section('style')
+<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+@endsection
+
+@section('body')
+	<div id="wrapper">
+	</div>
+	<div class="container">
+		<div class="row align-items-center justify-content-center transition-bottom" style="position:relative;">
+			<div class="modal fade" id="divBot">
+				<div class="modal-dialog" role="document">
+				    <div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Contact</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+				       		</button>
+						</div>
+						<div class="modal-body">
+							<div id="chat" class="conv-form-wrapper">
+								<form action="" method="GET" class="hidden">
+									<select name="contact" conv-question="Bonjour ! Vous souhaitez me contacter ?">
+										<option id="oui" value="yes">Bien sûr !</option>
+										<option value="no">Ah non non...</option>
+									</select>
+									<div conv-fork="contact">
+										<div conv-case="yes">
+											<input type="text" name="name" conv-question="Okay ! Commencez par me dire qui vous êtes.">
+											<input type="text" conv-question="Enchanté {name} ! C'est un plaisir de vous rencontrer :)" no-answer="true">
+											<input type="text" name="subject" conv-question="A propos de quoi souhaitez-vous que l'on discute ?">
+											<input conv-question="A quelle adresse e-mail puis-je vous contacter ?" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="Entrez votre email.">
+											<input type="text" conv-question="Parfait ! Je vous recontacterai à l'adresse : {email} à propos de {subject}" no-answer="true">
+											<input type="text" conv-question="Bonne journée !" no-answer="true">
+										</div>
+										<div conv-case="no">
+											<input type="text" conv-question="AH ! Dans ce cas, je vous laisse visiter ;)">
+										</div>				
+									</div>
+								</form>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12" align="center" id="divProfile">
+				<img class="rounded-circle border-white" src="assets/images/image015702.jpg?v13978417634941" alt="profile"/>
+				<h1 class="animation-target">Axel DENEU</h1>
+				<h3 class="text-light under">Développeur WEB</h3>
+				<hr class="landing-hr"/>
+				<ul class="icons">
+					<li><a class="animation-target" href="/cv"><i class="fa fa-address-card"></i></a></li>
+					<li><a class="bounce-effect animation-target" data-toggle="modal" data-target="#divBot"><i class="fa fa-envelope"></i><span class="badge badge-pill badge-danger">1</span></a></li>
+					<li><a class="animation-target" href="/projects"><i class="fa fa-cogs"></i></a></li>
+					<li><a class="animation-target" href="https://github.com/AxelDeneu" target="_new"><i class="fa fa-github"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+@endsection
+
+@section('script')
+<script src="assets/js/jquery.convform.js"></script>
+<script>
+	particlesJS.load('wrapper', 'assets/js/particlesjs-config.json', function() {
+       	console.log('callback - particles.js config loaded');
+   	});
+</script>
+<script>
+
+$('.icons li').click(function() {
+	$(this).find('a').find('span').fadeOut(500);
+	$(this).find('a').removeClass('bounce-effect');
+});
+</script>
+@endsection

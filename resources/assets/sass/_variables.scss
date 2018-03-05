@@ -1,0 +1,31 @@
+
+// Body
+$body-bg: #fff;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border-color: $laravel-border-color;
+
+$card-border-color: $laravel-border-color;
+
+// Brands
+$primary: #396afc;
+$info: #8eb4cb;
+$success: #2ab27b;
+$warning: #cbb956;
+$danger: #bf5329;
+
+// Typography
+$font-family-sans-serif: "Roboto", sans-serif;
+$font-size-base: .875rem; // 14px
+$line-height-base: 1.6;
+$text-color: #636b6f;
+
+// Inputs
+$input-border-color: lighten($text-color, 40%);
+$input-placeholder-color: lighten($text-color, 30%);
+
+
+$blue_gradient: linear-gradient(to right, #2948ff, #396afc);
+$blue_gradient-webkit: -webkit-linear-gradient(to right, #2948ff, #396afc);
+$blue: #396afc;
